@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подросток AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+<img src="/static/images/robot_face.svg" alt="Мая">
+</header>
+
+<div class="chat-box">
+    {% for message in chat_history %}
+    <div class="{{ message['sender'] }}">{{ message['text'] }}</div>
+    {% endfor %}
+</div>
+
+<form action="/chat" method="post" style="display: flex; justify-content: center; margin-top: 10px;">
+    <input class="chat_input" type="text" name="user_input" placeholder="Расскажи о своей проблеме" required style="width: 400px;">
+    <input type="image" src="/static/images/send.svg" alt="Submit">
+</form>
+
+</body>
+</html>
